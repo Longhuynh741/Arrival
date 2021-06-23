@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 const CreateEvent = () => {
   const [eventName, setEventName] = useState("");
@@ -12,8 +13,12 @@ const CreateEvent = () => {
   const [eventQuestion, setEventQuestion] = useState("");
   const [eventDetails, setEventDetails] = useState("");
 
+
+  let history = useHistory();
+
   function handleSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
+    history.push("/Event");
   }
 
   return (
@@ -55,7 +60,7 @@ const CreateEvent = () => {
             </Form.Group>
           </Row>
 
-          <Button variant="info" type="submit">
+          <Button variant="info" type="submit" onClick= {() => handleSubmit()}>
             Create Your Event
           </Button>
         </Form>
