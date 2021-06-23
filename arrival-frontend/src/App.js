@@ -4,6 +4,7 @@ import EventResults from './pages/Results';
 import Event from './pages/Event';
 import CheckIn from './pages/CheckIn';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import CreateEvent from './pages/CreateEvent';
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
 
         <Route exact path= {["/Event"]}>
           <Event />
+        </Route>
+        
+        <Route exact path= {["/CreateEvent"]}>
+          <CreateEvent />
           </Route>
 
           <Route exact path= {["/CheckIn"]}>
