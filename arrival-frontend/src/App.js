@@ -3,8 +3,9 @@ import Homepage from './pages/Homepage';
 import EventResults from './pages/Results';
 import Event from './pages/Event';
 import CheckIn from './pages/CheckIn';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import CreateEvent from './pages/CreateEvent';
+import HostLogin from './pages/HostLogin';
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
 
       <Route exact path= {["/Results"]}>
         <EventResults />
+        </Route>
+
+        <Route exact path={["/Login"]}>
+          <HostLogin/>
         </Route>
 
       </div>  
