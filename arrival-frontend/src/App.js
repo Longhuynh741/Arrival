@@ -1,10 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import { Jumbotron } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import CheckIn from "./pages/CheckIn";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import Homepage from './pages/Homepage';
 function App() {
   return (
     
@@ -12,6 +9,8 @@ function App() {
     
     <CheckIn></CheckIn>
       
+        <Homepage></Homepage>
+
     </div>
     
   );
