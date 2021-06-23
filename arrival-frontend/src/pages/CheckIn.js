@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton'
 function CheckIn() {
     return (
-        <div class="card text-center">\
+        <div class="card text-center">
             <div class="card-header">
                 <h1>Event Title And Questions</h1>
             </div>
