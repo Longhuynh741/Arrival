@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import { Jumbotron } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+import Homepage from './pages/Homepage';
 function App() {
   return (
     <div className="App">
-      <Jumbotron> Hello World</Jumbotron>
+        <Homepage></Homepage>
     </div>
   );
 }
