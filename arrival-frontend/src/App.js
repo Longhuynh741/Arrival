@@ -3,6 +3,7 @@ import Homepage from './pages/Homepage';
 import EventResults from './pages/Results';
 import Event from './pages/Event';
 import CheckIn from './pages/CheckIn';
+
 function App() {
   return (
     <div className="App">
