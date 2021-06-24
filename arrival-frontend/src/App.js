@@ -6,6 +6,7 @@ import CheckIn from './pages/CheckIn';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import CreateEvent from './pages/CreateEvent';
 import HostLogin from './pages/HostLogin';
+import AccountCreationHost from './pages/AccountCreationHost';
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
         <Route exact path={["/Login"]}>
           <HostLogin/>
         </Route>
+
+        <Route exact path={["/AccountCreation"]}>
+          <AccountCreationHost/>
+        </Route>
+
 
       </div>  
       </Router>
