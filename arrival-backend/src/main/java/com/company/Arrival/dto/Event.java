@@ -1,10 +1,22 @@
-package com.company.Arrival.models;
+package com.company.Arrival.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="event")
 public class Event {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer eventId;
+    @NotEmpty(message = "You must provide the name of your company")
+    private String companyName;
     @NotEmpty(message = "You must supply a name for the event")
     private String eventName;
     @NotEmpty(message = "You must supply a name for the main host")
@@ -15,12 +27,34 @@ public class Event {
 
     public Event() {}
 
-    public Event(String eventName, String mainHost, String location, String moreDetails) {
+
+
+
+    public Event(Integer id, String companyName, String eventName, String mainHost, String location, String moreDetails) {
+        this.eventId = eventId;
+        this.companyName = companyName;
         this.eventName = eventName;
         this.mainHost = mainHost;
         this.location = location;
         this.moreDetails = moreDetails;
     }
+
+    public Integer getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Integer eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
 
     public String getEventName() {
         return eventName;
@@ -57,23 +91,26 @@ public class Event {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Event)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(getEventName(), event.getEventName()) && Objects.equals(getMainHost(), event.getMainHost()) && Objects.equals(getLocation(), event.getLocation()) && Objects.equals(getMoreDetails(), event.getMoreDetails());
+        return Objects.equals(eventId, event.eventId) && Objects.equals(companyName, event.companyName) && Objects.equals(eventName, event.eventName) && Objects.equals(mainHost, event.mainHost) && Objects.equals(location, event.location) && Objects.equals(moreDetails, event.moreDetails);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getEventName(), getMainHost(), getLocation(), getMoreDetails());
+        return Objects.hash(eventId, companyName, eventName, mainHost, location, moreDetails);
     }
 
     @Override
     public String toString() {
         return "Event{" +
-                "eventName='" + eventName + '\'' +
+                "eventId=" + eventId +
+                ", companyName='" + companyName + '\'' +
+                ", eventName='" + eventName + '\'' +
                 ", mainHost='" + mainHost + '\'' +
                 ", location='" + location + '\'' +
                 ", moreDetails='" + moreDetails + '\'' +
                 '}';
     }
+
 }

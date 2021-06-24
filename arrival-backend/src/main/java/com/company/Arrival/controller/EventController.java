@@ -1,7 +1,58 @@
 package com.company.Arrival.controller;
+import com.company.Arrival.dao.EventRepository;
+import com.company.Arrival.dto.Event;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping(value = "/events")
 public class EventController {
 
+    @Autowired
+    private EventRepository eventRepo;
 
 
+    @PostMapping("/events")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Event createEvent(@RequestBody Event event) {
+        System.out.println("Creating Event: " + event);
+        return event;
+    }
+
+//    @GetMapping
+//    public List<Event> getAllEvents() {
+//        return eventRepo.findAll();
+//    }
+
+    @GetMapping(value = "/{id}")
+    public Event getEventById(@PathVariable int eventId) {
+        Optional<Event> event =  eventRepo.findById(eventId);
+
+        if (!event.isPresent()) {
+            return null;
+        }
+            return event.get();
+    }
+
+    @PutMapping(value = "/{id}")
+    public void updateEvent(@RequestBody Event event, @PathVariable int eventId) {
+        if (event.getEventId() == null) {
+            event.setEventId(eventId);
+        }
+
+        if(event.getEventId() != eventId) {
+            throw new IllegalArgumentException("Event ID must match");
+        }
+        eventRepo.save(event);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteEvent(@PathVariable int eventId) {
+        eventRepo.deleteById(eventId);
+    }
 }
