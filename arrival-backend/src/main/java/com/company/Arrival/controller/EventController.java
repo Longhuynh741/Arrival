@@ -3,7 +3,7 @@ import com.company.Arrival.dao.EventRepository;
 import com.company.Arrival.dto.Event;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@RefreshScope
+@RefreshScope
 public class EventController {
     @Autowired
     private EventRepository eventRepo;
@@ -26,7 +26,6 @@ public class EventController {
 
     @GetMapping(value = "/events")
     public List<Event> getAllEvents() {
-
         return eventRepo.findAll();
     }
 

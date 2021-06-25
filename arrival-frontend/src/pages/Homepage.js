@@ -1,9 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
+
 require("./Homepage.css");
 
 function Homepage() {
+
+
   let history = useHistory();
 
   function handleSearch() {
