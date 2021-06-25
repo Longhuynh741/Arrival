@@ -3,6 +3,7 @@ import com.company.Arrival.dao.EventRepository;
 import com.company.Arrival.dto.Event;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/events")
+@RefreshScope
 public class EventController {
 
     @Autowired
