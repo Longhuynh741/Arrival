@@ -1,9 +1,10 @@
 import { Container } from 'react-bootstrap';
 import { ToggleButton } from 'react-bootstrap';
 
-function Questions() {
-    return (
+function Questions({records}) {
 
+
+    return (
         <div>
             <Container>
             <h5 class="card-title">Are you older than 18?</h5>
