@@ -7,29 +7,27 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/events")
 @RefreshScope
 public class EventController {
-
     @Autowired
     private EventRepository eventRepo;
-
 
     @PostMapping("/events")
     @ResponseStatus(HttpStatus.CREATED)
     public Event createEvent(@RequestBody Event event) {
         System.out.println("Creating Event: " + event);
-        return event;
+        return eventRepo.save(event);
     }
 
-//    @GetMapping
-//    public List<Event> getAllEvents() {
-//        return eventRepo.findAll();
-//    }
+    @GetMapping(value = "/events")
+    public List<Event> getAllEvents() {
+        return eventRepo.findAll();
+    }
 
     @GetMapping(value = "/{id}")
     public Event getEventById(@PathVariable int eventId) {

@@ -7,19 +7,21 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import CreateEvent from './pages/CreateEvent';
 import HostLogin from './pages/HostLogin';
 import AccountCreationHost from './pages/AccountCreationHost';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Router> 
+    <Router>
+            <QueryClientProvider client={queryClient}>
       <div className="App">
         <Route exact path= {["/", "/Arrival"]}>
       <Homepage/>
         </Route>
-
         <Route exact path= {["/Event"]}>
-          <Event />
+          <Event/>
         </Route>
-        
         <Route exact path= {["/CreateEvent"]}>
           <CreateEvent />
           </Route>
@@ -41,7 +43,9 @@ function App() {
         </Route>
 
 
-      </div>  
+        </div>
+        </QueryClientProvider>
+
       </Router>
   );
 }
