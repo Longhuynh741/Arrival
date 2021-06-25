@@ -1,4 +1,4 @@
-package com.company.Arrival.models;
+package com.company.Arrival.dto;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
