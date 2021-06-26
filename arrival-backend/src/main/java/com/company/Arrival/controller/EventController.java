@@ -55,4 +55,9 @@ public class EventController {
     public void deleteEvent(@PathVariable int eventId) {
         eventRepo.deleteById(eventId);
     }
+
+    @GetMapping(value = "/events/{companyName}")
+    public List<Event> findByCompanyName(@PathVariable String companyName) {
+        return eventRepo.findByCompanyName(companyName);
+    }
 }
