@@ -1,6 +1,5 @@
-import { useHistory } from "react-router-dom";
 import api from "./api/index";
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import {useQuery} from 'react-query';
 import EventsTable from "../components/EventsTable";
 
 
@@ -14,12 +13,6 @@ const Event = (props) => {
 
   let  newArray = [];
 
-  const queryClient = useQueryClient();
-
-  const addRecord = useMutation(payload => api.create(payload));
-
-  let history = useHistory();
-  
   if (!data) {
     return null
   }

@@ -5,12 +5,10 @@ import Col from "react-bootstrap/Col";
 import { Jumbotron } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
-import { useMutation, useQueryClient } from 'react-query';
 
 function EventsTable({ records }) {
     
     let history = useHistory();
-    const queryClient = useQueryClient();
     function handleMoreDetails() {
         history.push("/Results");
       }

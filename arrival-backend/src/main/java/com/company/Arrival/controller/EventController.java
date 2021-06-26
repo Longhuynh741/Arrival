@@ -29,7 +29,7 @@ public class EventController {
         return eventRepo.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{eventId}")
     public Event getEventById(@PathVariable int eventId) {
         Optional<Event> event =  eventRepo.findById(eventId);
 
@@ -39,7 +39,7 @@ public class EventController {
             return event.get();
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/{eventId}")
     public void updateEvent(@RequestBody Event event, @PathVariable int eventId) {
         if (event.getEventId() == null) {
             event.setEventId(eventId);
@@ -51,8 +51,8 @@ public class EventController {
         eventRepo.save(event);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public void deleteEvent(@PathVariable int eventId) {
+    @DeleteMapping(value = "/{eventId}")
+    public void deleteEvent(@PathVariable Integer eventId) {
         eventRepo.deleteById(eventId);
     }
 
