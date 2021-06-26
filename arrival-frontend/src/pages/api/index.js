@@ -13,7 +13,7 @@ const api = {
   },
 
   create(payload) {
-    return ky.post(baseUrl, { json: payload }).json();
+    return ky.post(baseUrl, { json: payload });
   },
 
   delete(id) {
