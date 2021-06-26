@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import { Jumbotron } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
+import api from "../../pages/api";
 
 function EventsTable({ records }) {
     
@@ -12,8 +13,9 @@ function EventsTable({ records }) {
     function handleMoreDetails() {
         history.push("/Results");
       }
-      function handleDelete() {
-        console.log("I will delete event")
+      function handleDelete(eventId) {
+        api.delete(eventId);
+        window.location.reload();
       }
       function handleAddEvent() {
         history.push("/CreateEvent");
@@ -71,7 +73,7 @@ function EventsTable({ records }) {
                       <td colSpan="2">{mainHost}</td>
                       <td colSpan="2">{location}</td>
                               <td colSpan="2" onClick={() => handleMoreDetails()}>More Details</td>
-                      <td colSpan="2"onClick= {() => handleDelete()}>Delete</td>
+                      <td colSpan="2"onClick= {() => handleDelete(eventId)}>Delete</td>
                       </tr> 
                       ))}
                   </tbody>
