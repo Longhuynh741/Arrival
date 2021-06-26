@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import IncrementButton from "../components/IncrementButton";
 import DecrementButton from "../components/DecrementButton";
+import Questions from "./Questions";
 
 const EventResults = (props) => {
   return (
@@ -16,45 +17,13 @@ const EventResults = (props) => {
       <Container className="resultsContainer">
 
         <h1> Results Goes Here: </h1>
+
+        <Questions/>
         <Row>
           <Col md="3">
             <Card style={({ width: "18rem" }, { margin: "15px" })}>
               <Card.Body>
                 <Card.Title>Question 1 Results</Card.Title>
-                <Card.Text>
-                  <IncrementButton />
-                  <DecrementButton />
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col md="3">
-            <Card style={({ width: "18rem" }, { margin: "15px" })}>
-              <Card.Body>
-                <Card.Title>Question 2 Results</Card.Title>
-                <Card.Text>
-                  <IncrementButton />
-                  <DecrementButton />
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md="3">
-            <Card style={({ width: "18rem" }, { margin: "15px" })}>
-              <Card.Body>
-                <Card.Title>Question 3 Results</Card.Title>
-                <Card.Text>
-                  <IncrementButton />
-                  <DecrementButton />
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md="3">
-            <Card style={({ width: "18rem" }, { margin: "15px" })}>
-              <Card.Body>
-                <Card.Title>Question 4 Results</Card.Title>
                 <Card.Text>
                   <IncrementButton />
                   <DecrementButton />
