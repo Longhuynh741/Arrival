@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.lang.reflect.Array;
 import java.util.*;
 
 @Entity
@@ -24,21 +25,22 @@ public class Event {
     @NotEmpty(message = "You must supply a location")
     private String location;
     private String moreDetails;
-    private List<String> questions;
+    private ArrayList<String> questions;
+
 
     public Event() {}
 
 
 
 
-    public Event(Integer id, String companyName, String eventName, String mainHost, String location, String moreDetails, List<String> questions) {
+    public Event(Integer id, String companyName, String eventName, String mainHost, String location, String moreDetails, ArrayList<String> questions) {
         this.eventId = eventId;
         this.companyName = companyName;
         this.eventName = eventName;
         this.mainHost = mainHost;
         this.location = location;
         this.moreDetails = moreDetails;
-        this.questions = Collections.unmodifiableList(new ArrayList<>(questions));
+        this.questions = questions;
     }
 
     public Integer getEventId() {
