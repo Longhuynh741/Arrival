@@ -1,45 +1,105 @@
-import { Container } from 'react-bootstrap';
-import { ToggleButton } from 'react-bootstrap';
+import { Container } from "react-bootstrap";
+import React, { useState } from "react";
 
-function Questions({records}) {
+export default function Questions() {
+  const questions = [
+    {
+      questionText: "Do you like pizza?",
+      answerOptions: [
+        { answerText: "Yes", clickedValue: true },
+        { answerText: "No", clickedValue: false }
+      ]
+    },
+    {
+      questionText: "Are you 18 or older?",
+      answerOptions: [
+        { answerText: "Yes", clickedValue: true },
+        { answerText: "No", clickedValue: false }
+      ]
+    },
+    {
+      questionText: "Are you 21 or older?",
+      answerOptions: [
+        { answerText: "Yes", clickedValue: true },
+        { answerText: "No", clickedValue: false }
+      ]
+    },
+    {
+      questionText: "Are you vegan?",
+      answerOptions: [
+        { answerText: "Yes", clickedValue: true },
+        { answerText: "No", clickedValue: false }
+      ]
+    },
+    {
+      questionText: "Are you ok?",
+      answerOptions: [
+        { answerText: "Yes", clickedValue: true },
+        { answerText: "No", clickedValue: false }
+      ]
+    },
+    {
+      questionText: "Are you lactose intolerant?",
+      answerOptions: [
+        { answerText: "Yes", clickedValue: true },
+        { answerText: "No", clickedValue: false }
+      ]
+    }
+  ];
 
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showYes, setShowYes] = useState(0);
+  const [showNo, setShowNo] = useState(0);
+  const [questionsCompleted, setQuestionsCompleted] = useState(false);
 
-    return (
-        <div>
-            <Container>
-            <h5 class="card-title">Are you older than 18?</h5>
-               <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Do you want a break? </h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 3</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 4</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 5</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 6</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 7</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 8</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 9</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
-                <h5 class="card-title">Qustion 10</h5>
-                <ToggleButton type = "radio">Yes</ToggleButton>
-               <ToggleButton type = "radio">No</ToggleButton>
+  const handleAnswerOptionClick = (clickedValue) => {
+    if (clickedValue === true) {
+      setShowYes(showYes + 1);
+    }
+    if (clickedValue === false) {
+      setShowNo(showNo + 1);
+    }
 
-            </Container>
-        </div >
-    )
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setCurrentQuestion(currentQuestion);
+      setQuestionsCompleted(true);
+    }
+  };
+
+  return (
+    <div className="questions">
+      <Container>
+        {questionsCompleted ? (
+          <div className="answerSection">
+            You answered {showYes} times yes and {showNo} no.
+          </div>
+        ) : (
+          <>
+            <div className="question-section">
+              <div className="question-count">
+                <span>Question {currentQuestion + 1}</span>/{questions.length}
+              </div>
+              <div className="question-text">
+                {questions[currentQuestion].questionText}
+              </div>
+            </div>
+            <div className="answer-section">
+              {questions[currentQuestion].answerOptions.map((answerOption) => (
+                <button
+                  onClick={() =>
+                    handleAnswerOptionClick(answerOption.clickedValue)
+                  }
+                >
+                  {answerOption.answerText}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+      </Container>
+    </div>
+  );
 }
-export default Questions;
