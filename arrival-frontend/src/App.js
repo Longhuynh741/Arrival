@@ -8,7 +8,7 @@ import CreateEvent from './pages/CreateEvent';
 import HostLogin from './pages/HostLogin';
 import AccountCreationHost from './pages/AccountCreationHost';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import Error from "./pages/Error"; 
 const queryClient = new QueryClient();
 
 function App() {
@@ -19,8 +19,11 @@ function App() {
         <Route exact path= {["/", "/Arrival"]}>
       <Homepage/>
         </Route>
-        <Route exact path= {["/Event"]}>
+        <Route exact path= {["/Event/Cognizant", "/Event"]}>
           <Event/>
+          </Route>
+          <Route exact path= {["/Error"]}>
+          <Error/>
         </Route>
         <Route exact path= {["/CreateEvent"]}>
           <CreateEvent />
