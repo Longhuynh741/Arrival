@@ -1,12 +1,12 @@
 import React from "react";
 import Form from "../components/Form/index"
+require("../assets/css/CreateEvent.css");
 
 
 const CreateEvent = () => {
 
   return (
-    <div id="loginContainer">
-    <div className="container-fluid">
+    <div className="container-fluid createEventContainer">
       <div className ="row">
         <div className ="col-md-12 text-center">
           <h2 id="login-title"> Create an Event </h2>
@@ -14,7 +14,6 @@ const CreateEvent = () => {
         </div>
       </div>
       </div>  
-      </div>    
   );
 };
 
