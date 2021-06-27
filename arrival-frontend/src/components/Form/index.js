@@ -15,24 +15,16 @@ const Form = () => {
       event.preventDefault();
       console.log(formObject)
 
-    if (
-      !formObject.companyName ||
-      !formObject.eventName ||
-        !formObject.location ||
-        !formObject.moreDetails 
-    ) {
-      alert("Please fill out all fields to sign up");
-      return;
-    } else {
+
       api.create({
-        companyName: formObject.companyName,
+        mainHost: formObject.mainHost,
         eventName: formObject.eventName,
         location: formObject.location,
         moreDetails: formObject.moreDetails,
       })        .then((res) => {
         history.push("/Event");
       })
-      }
+      
   };
   return (
     <div>
@@ -40,10 +32,10 @@ const Form = () => {
         <form className="form text-center" id="registerForm">
           <div className="registerInput">
             <input
-              name="companyName"
+              name="mainHost"
               onChange={handleInputChange}
               type="text"
-              placeholder="Company Name"
+              placeholder="Main Host"
             />
           </div>
           <div className="registerInput">

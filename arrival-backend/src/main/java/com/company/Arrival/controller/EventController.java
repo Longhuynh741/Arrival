@@ -51,7 +51,7 @@ public class EventController {
         eventRepo.save(event);
     }
 
-    @DeleteMapping(value = "/{eventId}")
+    @DeleteMapping(value = "events/{eventId}")
     public void deleteEvent(@PathVariable Integer eventId) {
         eventRepo.deleteById(eventId);
     }
