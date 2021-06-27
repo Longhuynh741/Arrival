@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Logo from "../assets/ArrivalLogo.png";
-require("./Homepage.css");
+require("../assets/css/Homepage.css");
 
 function Homepage() {
   const [searchObject, setSearchObject] = useState({});
@@ -18,7 +18,7 @@ function Homepage() {
   let history = useHistory();
 
   function handleSearch() {
-    
+
     if (searchTerm !== "Cognizant") {
       history.push("/Error");
     } else {
