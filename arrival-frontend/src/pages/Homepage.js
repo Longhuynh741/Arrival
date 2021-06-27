@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-// require("./Homepage.css");
+require("./Homepage.css");
 
 function Homepage() {
   let history = useHistory();
