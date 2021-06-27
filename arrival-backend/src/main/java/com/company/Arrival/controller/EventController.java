@@ -29,7 +29,7 @@ public class EventController {
         return eventRepo.findAll();
     }
 
-    @GetMapping(value = "/{eventId}")
+    @GetMapping(value = "/event/{eventId}")
     public Event getEventById(@PathVariable int eventId) {
         Optional<Event> event =  eventRepo.findById(eventId);
 
@@ -39,7 +39,7 @@ public class EventController {
             return event.get();
     }
 
-    @PutMapping(value = "/{eventId}")
+    @PutMapping(value = "/events/{eventId}")
     public void updateEvent(@RequestBody Event event, @PathVariable int eventId) {
         if (event.getEventId() == null) {
             event.setEventId(eventId);

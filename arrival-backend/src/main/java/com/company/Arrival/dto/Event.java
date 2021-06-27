@@ -67,7 +67,7 @@ public class Event {
         return Objects.hash(getEventId(), getCompanyName(), getEventName(), getMainHost(), getLocation(), getMoreDetails(), getQuestions());
     }
 
-    public List<String> getQuestions() {
+    public ArrayList<String> getQuestions() {
         return questions;
     }
 
