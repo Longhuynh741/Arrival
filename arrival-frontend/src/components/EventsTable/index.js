@@ -2,10 +2,13 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Jumbotron } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import api from "../../pages/api";
+import { RiDeleteBin5Line } from 'react-icons/ri';
+import { MdAddCircle } from 'react-icons/md';
+
+require("../../assets/css/Event.css")
 
 function EventsTable({ records }) {
     
@@ -22,22 +25,21 @@ function EventsTable({ records }) {
       }
     return (
 
-        <div>
+        <div className="eventContainer">
         <Container>
           <Row className="justify-content-md-center">
-            <h1>Coming Up Events</h1>
+            <h1 id="titleText">Cognizant Upcoming Events</h1>
           </Row>
-          <Jumbotron>
-            <Row className="justify-content-center">
-              <Col md="auto">
-                <Table responsive="sm, md, lg">
+                <Table striped bordered hover variant="dark"
+                  responsive="sm, md, lg">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>Event Id</th>
                       <th colSpan="2">Event</th>
                       <th colSpan="2">Main Host</th>
-                      <th colSpan="1">Location</th>
-                      <th colSpan="2">Details</th>
+                      <th colSpan="2">Location</th>
+                <th colSpan="2">Details</th>
+                <th colSpin ="2"> Delete Event</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -47,7 +49,7 @@ function EventsTable({ records }) {
                       <td colSpan="2">Otto</td>
                       <td colSpan="2">World Conference Center</td>
                       <td colSpan="2" onClick={() => handleMoreDetails()}>More Details</td>
-                      <td colSpan="2"onClick= {() => handleDelete()}>Delete</td>
+                      <td colSpan="2"onClick= {() => handleDelete()}><RiDeleteBin5Line/> </td>
   
                     </tr>
                     <tr>
@@ -56,7 +58,7 @@ function EventsTable({ records }) {
                       <td colSpan="2">Thornton</td>
                       <td colSpan="2">Staples Center</td>
                       <td colSpan="2" onClick={() => handleMoreDetails()}>More Details</td>
-                      <td colSpan="2"onClick= {() => handleDelete()}>Delete</td>
+                      <td colSpan="2"onClick= {() => handleDelete()}><RiDeleteBin5Line/></td>
                     </tr>
                     <tr>
                       <td>3</td>
@@ -64,7 +66,7 @@ function EventsTable({ records }) {
                       <td colSpan="2">Elon Musk</td>
                       <td colSpan="2">Tesla Headquarters</td>
                       <td colSpan="2" onClick={() => handleMoreDetails()}>More Details</td>
-                      <td colSpan="2"onClick= {() => handleDelete()}>Delete</td>
+                      <td colSpan="2"onClick= {() => handleDelete()}><RiDeleteBin5Line/></td>
                     </tr>
                       {records.map(({eventId, eventName, location, mainHost, moreDetails }) => (
                      <tr> 
@@ -73,23 +75,18 @@ function EventsTable({ records }) {
                       <td colSpan="2">{mainHost}</td>
                       <td colSpan="2">{location}</td>
                               <td colSpan="2" onClick={() => handleMoreDetails()}>More Details</td>
-                      <td colSpan="2"onClick= {() => handleDelete(eventId)}>Delete</td>
+                      <td colSpan="2"onClick= {() => handleDelete(eventId)}><RiDeleteBin5Line/></td>
                       </tr> 
                       ))}
                   </tbody>
                 </Table>
-              </Col>   
-            </Row>
-          </Jumbotron>
           <Row className="justify-content-md-center">
             <Col>
-              <h4 onClick={() => handleAddEvent()}>Add Event</h4>
+              <h4 onClick={() => handleAddEvent()}>Add Event <p/> <MdAddCircle id="addIcon"/> </h4>
             </Col>
           </Row>
           <Row className="justify-content-md-center">
-            <Col>
-              <Button variant="add">Info</Button>{" "}
-            </Col>
+
           </Row>
         </Container>
       </div>
