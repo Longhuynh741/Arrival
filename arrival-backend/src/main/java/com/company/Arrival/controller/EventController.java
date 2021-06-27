@@ -57,7 +57,7 @@ public class EventController {
     }
 
     @GetMapping(value = "/events/{companyName}")
-    public List<Event> findByCompanyName(@PathVariable String companyName) {
+    public Event findByCompanyName(@PathVariable String companyName) {
         return eventRepo.findByCompanyName(companyName);
     }
 }
