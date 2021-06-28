@@ -9,7 +9,6 @@ const Event = (props) => {
 
   const { data } = useQuery('events', fetchRecords);
 
-  console.log(data);
 
   let  newArray = [];
 
