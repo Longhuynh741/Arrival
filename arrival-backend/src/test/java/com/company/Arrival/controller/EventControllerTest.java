@@ -110,3 +110,10 @@ public class EventControllerTest {
 //                .willReturn(allEvents);
 //    }
 }
+    @Test
+    public void shouldReturnEventsByCompany() throws Exception {
+        given(eventRepo.findByCompanyName("Cognizant"))
+                .willReturn(allEvents);
+    }
+
+}
