@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Arrival
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributors](#contributors)
+* [Licenses](#licenses)
+* [Future Development Directions](#future-development-direction)
+* [Questions](#questions)
 
-## Available Scripts
+## Description
+Arrival is an app designed to help your business provide a better catered event to your attending audience.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+As of now, you can clone this repository at https://github.com/Longhuynh741/Arrival 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project uses ReactJs with a Java back-end, as well as a cloud-config & Eureka service. All three back end components should be running to deploy this application. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Usage
 
-### `npm test`
+The ideal user of this is application is a business who is hosting an event, such as a conference, and would like to collect additional information on their attending audience as they check-in to the event using Arrival. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Contributors`
 
-### `npm run build`
+* [Omar Cossio](https://github.com/omarcossio)
+* [Long Huynh](https://github.com/Longhuynh741)
+* [Naritchaya Louis](https://github.com/NKLouis)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Licenses`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![License](https://img.shields.io/badge/license-ISC-green)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
-### `npm run eject`
+### `Future Development Direction`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Arrival is an application in-development. As of now, it only performs essential functions, but will be upgraded to allow hosts to customize their questions, enhanced results presentation, and graph to represent data. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `Questions`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any questions, feel free to reach out to any of the contributors in the  [Contributors](#contributors) section. 
+ 
