@@ -19,7 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 @RunWith(SpringRunner.class)
 @WebMvcTest(EventController.class)
 @ImportAutoConfiguration(RefreshAutoConfiguration.class)
@@ -109,11 +108,11 @@ public class EventControllerTest {
 //        given(eventRepo.findByCompanyName("Cognizant"))
 //                .willReturn(allEvents);
 //    }
-}
-    @Test
-    public void shouldReturnEventsByCompany() throws Exception {
-        given(eventRepo.findByCompanyName("Cognizant"))
-                .willReturn(allEvents);
-    }
+
+//    @Test
+//    public void shouldReturnEventsByCompany() throws Exception {
+//        given(eventRepo.findByCompanyName("Cognizant"))
+//                .willReturn((Event) allEvents);
+//    }
 
 }

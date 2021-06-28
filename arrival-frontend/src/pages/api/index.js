@@ -1,7 +1,7 @@
 import ky from 'ky';
 
 // Only 1 😃
-const baseUrl = 'http://localhost:7979/events';
+const baseUrl = 'http://localhost:7979/events/';
 
 const api = {
   index() {
@@ -9,7 +9,7 @@ const api = {
   },
 
   update(payload, id) {
-    return ky.put(`${baseUrl}/${id}`, { json: payload });
+    return ky.put(`http://localhost:7979/` + id, { json: payload });
   },
 
   create(payload) {
@@ -19,6 +19,11 @@ const api = {
   delete(id) {
     return ky.delete(`${baseUrl}/${id}`);
   },
+
+  getById(eventId) {
+    return ky.get('http://localhost:7979/' + eventId ).json();
+  }
+
 };
 
 export default api;

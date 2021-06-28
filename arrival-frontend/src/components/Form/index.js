@@ -30,6 +30,11 @@ const Form = () => {
         history.push("/Event");
       });
   };
+
+  const handleGoBack = (event) => {
+    history.push("/Event");
+
+  }
   return (
     <div>
       <Container>
@@ -73,6 +78,9 @@ const Form = () => {
 
           <button id="registerBtn" onClick={handleFormSubmit}>
             Submit
+          </button>
+          <button id="registerBtn" onClick={handleGoBack}>
+            Go Back
           </button>
         </form>
       </Container>

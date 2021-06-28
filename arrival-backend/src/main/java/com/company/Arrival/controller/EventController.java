@@ -31,6 +31,7 @@ public class EventController {
 
     @GetMapping(value = "/event/{eventId}")
     public Event getEventById(@PathVariable int eventId) {
+
         Optional<Event> event =  eventRepo.findById(eventId);
 
         if (!event.isPresent()) {
