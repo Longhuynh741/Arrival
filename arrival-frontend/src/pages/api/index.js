@@ -9,7 +9,7 @@ const api = {
   },
 
   update(payload, id) {
-    return ky.put(`http://localhost:7979/` + id, { json: payload });
+    return ky.put(`http://localhost:7979/events/` + id, { json: payload });
   },
 
   create(payload) {
@@ -21,7 +21,7 @@ const api = {
   },
 
   getById(eventId) {
-    return ky.get('http://localhost:7979/' + eventId ).json();
+    return ky.get('http://localhost:7979/event/' + eventId ).json();
   }
 
 };
