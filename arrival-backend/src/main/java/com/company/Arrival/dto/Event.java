@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,34 +22,22 @@ public class Event {
     private String mainHost;
     private String location;
     private String moreDetails;
-    private Integer checkedIn = 0;
     private ArrayList<String> questions;
+
+
+
 
 
     public Event() {}
 
-    public Event(Integer eventId, String companyName, String eventName, String mainHost, String location, String moreDetails, Integer checkedIn, ArrayList<String> questions) {
+    public Event(Integer eventId, String companyName, String eventName, String mainHost, String location, String moreDetails, ArrayList<String> questions) {
         this.eventId = eventId;
         this.companyName = companyName;
         this.eventName = eventName;
         this.mainHost = mainHost;
         this.location = location;
         this.moreDetails = moreDetails;
-        this.checkedIn = checkedIn;
         this.questions = questions;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Event)) return false;
-        Event event = (Event) o;
-        return Objects.equals(getEventId(), event.getEventId()) && Objects.equals(getCompanyName(), event.getCompanyName()) && Objects.equals(getEventName(), event.getEventName()) && Objects.equals(getMainHost(), event.getMainHost()) && Objects.equals(getLocation(), event.getLocation()) && Objects.equals(getMoreDetails(), event.getMoreDetails()) && Objects.equals(getCheckedIn(), event.getCheckedIn()) && Objects.equals(getQuestions(), event.getQuestions());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getEventId(), getCompanyName(), getEventName(), getMainHost(), getLocation(), getMoreDetails(), getCheckedIn(), getQuestions());
     }
 
     @Override
@@ -62,11 +49,30 @@ public class Event {
                 ", mainHost='" + mainHost + '\'' +
                 ", location='" + location + '\'' +
                 ", moreDetails='" + moreDetails + '\'' +
-                ", checkedIn=" + checkedIn +
                 ", questions=" + questions +
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Event)) return false;
+        Event event = (Event) o;
+        return Objects.equals(getEventId(), event.getEventId()) && Objects.equals(getCompanyName(), event.getCompanyName()) && Objects.equals(getEventName(), event.getEventName()) && Objects.equals(getMainHost(), event.getMainHost()) && Objects.equals(getLocation(), event.getLocation()) && Objects.equals(getMoreDetails(), event.getMoreDetails()) && Objects.equals(getQuestions(), event.getQuestions());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEventId(), getCompanyName(), getEventName(), getMainHost(), getLocation(), getMoreDetails(), getQuestions());
+    }
+
+    public ArrayList<String> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(ArrayList<String> questions) {
+        this.questions = questions;
+    }
     public Integer getEventId() {
         return eventId;
     }
@@ -115,19 +121,5 @@ public class Event {
         this.moreDetails = moreDetails;
     }
 
-    public Integer getCheckedIn() {
-        return checkedIn;
-    }
 
-    public void setCheckedIn(Integer checkedIn) {
-        this.checkedIn = checkedIn;
-    }
-
-    public ArrayList<String> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(ArrayList<String> questions) {
-        this.questions = questions;
-    }
 }
