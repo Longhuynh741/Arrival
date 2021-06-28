@@ -1,5 +1,4 @@
 package com.company.Arrival.controller;
-
 import com.company.Arrival.dao.EventRepository;
 import com.company.Arrival.dto.Event;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,7 +10,6 @@ import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.autoconfigure.RefreshAutoConfiguration;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,32 +17,24 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(EventController.class)
 @ImportAutoConfiguration(RefreshAutoConfiguration.class)
 public class EventControllerTest {
-
     @Autowired
     MockMvc mockMvc;
-
     @MockBean
     EventRepository eventRepo;
-
     ObjectMapper mapper = new ObjectMapper();
-
     private Event myEvent;
     private String eventJson;
     private List<Event> allEvents = new ArrayList<>();
     private String allEventsJson;
     private ArrayList<String> questions;
     private String questionsJson;
-
     @Before
     public void setup() throws Exception {
         myEvent = new Event();
@@ -54,9 +44,7 @@ public class EventControllerTest {
         myEvent.setMainHost("Dan");
         myEvent.setLocation("SMU Campus");
         myEvent.setMoreDetails("BYOB");
-
         eventJson = mapper.writeValueAsString(myEvent);
-
         Event event1 = new Event();
         event1.setEventId(2);
         event1.setCompanyName("This Co");
@@ -64,12 +52,9 @@ public class EventControllerTest {
         event1.setMainHost("Hermit");
         event1.setLocation("Sesame St");
         event1.setMoreDetails("Bring chairs.");
-
         allEvents.add(myEvent);
         allEvents.add(event1);
-
         allEventsJson = mapper.writeValueAsString(allEvents);
-
 //        questionsJson = mapper.writeValueAsString(questions);
 //
 //        questions = new ArrayList<>(Arrays.asList(
@@ -78,7 +63,6 @@ public class EventControllerTest {
 //                questions.add("Do you like Pizza?")
 //        ));
     }
-
     @Test
     public void shouldCreateNewEventOnPost() throws Exception {
         Event input = new Event();
@@ -88,11 +72,8 @@ public class EventControllerTest {
         input.setMainHost("Ellen");
         input.setLocation("Miami Beach");
         input.setMoreDetails("Dress for warm weather");
-
         String inputJson = mapper.writeValueAsString(input);
-
         given(eventRepo.save(input)).willReturn(myEvent);
-
         mockMvc.perform(
                 post("/events")
                         .content(inputJson)
@@ -100,7 +81,6 @@ public class EventControllerTest {
                 .andExpect(status().isCreated())
                 .andExpect(content().json(eventJson));
     }
-
     @Test
     public void shouldUpdateEvent() throws Exception {
         mockMvc.perform(
@@ -110,29 +90,23 @@ public class EventControllerTest {
         )
                 .andExpect(status().isOk());
     }
-
     @Test
     public void shouldDeleteEvent() throws Exception {
         mockMvc.perform(delete("/events/1"))
                 .andExpect(status().isOk());
     }
-
     @Test
     public void shouldReturnAllEvents() throws Exception {
         given(eventRepo.findAll()).willReturn(allEvents);
-
         mockMvc.perform(
                 get("/events"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(allEventsJson)
                 );
     }
-
-    @Test
-    public void shouldReturnEventsByCompany() throws Exception {
-        given(eventRepo.findByCompanyName("Cognizant"))
-                .willReturn(allEvents);
-    }
-
-
+//    @Test
+//    public void shouldReturnEventsByCompany() throws Exception {
+//        given(eventRepo.findByCompanyName("Cognizant"))
+//                .willReturn(allEvents);
+//    }
 }

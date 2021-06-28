@@ -34,9 +34,9 @@ public class ServiceLayer {
         return eventRepository.findAll();
     }
 
-    public void deleteEvent(Integer eventId) {
-        eventRepository.deleteById(eventId);
-    }
+//    public void deleteEvent(Integer eventId) {
+//        eventRepository.deleteById(eventId);
+//    }
 
     public Event updateEvent(Integer EventId, String newEvent) {
         Event eventFromDb = eventRepository.findByEventId(EventId);

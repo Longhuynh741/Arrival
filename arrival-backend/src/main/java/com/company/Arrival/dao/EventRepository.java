@@ -15,5 +15,4 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     List<Event> findByMainHost(String mainHost);
     Event findByEventId(Integer eventId);
 
-
 }

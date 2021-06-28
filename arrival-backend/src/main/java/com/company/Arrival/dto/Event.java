@@ -122,4 +122,5 @@ public class Event {
         this.moreDetails = moreDetails;
     }
 
+
 }
